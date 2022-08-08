@@ -90,13 +90,14 @@ public class SingleLinkedList {
     }
 
     public void reverseRecursionHelper(Node head){
-        System.out.println(head.data);
         if (head.next == null){
             this.head = head;
+            return;
         }
         reverseRecursionHelper(head.next);
         Node currNode = head.next;
         currNode.next = head;
+        head.next = null;
     }
     public int getElement (int index){
         Node currNode = this.head;
