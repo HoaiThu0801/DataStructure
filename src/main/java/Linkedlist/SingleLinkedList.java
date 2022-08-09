@@ -2,7 +2,7 @@ package Linkedlist;
 
 public class SingleLinkedList {
     Node head;
-    static class Node {
+    public static class Node {
         int data;
         Node next;
 
@@ -10,6 +10,18 @@ public class SingleLinkedList {
             this.data = data;
             this.next = null;
         }
+
+        public int getData() {
+            return data;
+        }
+
+        public Node getNext() {
+            return next;
+        }
+    }
+
+    public Node getHead() {
+        return head;
     }
 
     public SingleLinkedList() {
@@ -31,6 +43,17 @@ public class SingleLinkedList {
             }
             last.next = newNode;
         }
+    }
+    public void insert(SingleLinkedList list){
+        if (this.head == null){
+            this.head = list.head;
+            return;
+        }
+        Node last = this.head;
+        while (last.next != null){
+            last = last.next;
+        }
+        last.next = list.head;
     }
     public void add (int data){
         Node newNode = new Node(data);
