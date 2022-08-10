@@ -74,18 +74,18 @@ public class SingleLinkedListTest {
 
     }
 
-//    @Test
-//    @DisplayName("Test reverse recursion method of single linked list")
-//    void testReverseRecursion(){
-//        singleLinkedList.add(2);
-//        singleLinkedList.add(4);
-//        singleLinkedList.add(5);
-//
-//        singleLinkedList.printLinkedList();
-//        singleLinkedList.reverseRecursion();
-//        singleLinkedList.printLinkedList();
-//
-//    }
+    @Test
+    @DisplayName("Test reverse recursion method of single linked list")
+    void testReverseRecursion(){
+        singleLinkedList.add(2);
+        singleLinkedList.add(4);
+        singleLinkedList.add(5);
+
+        singleLinkedList.printLinkedList();
+        singleLinkedList.reverseRecursion();
+        singleLinkedList.printLinkedList();
+
+    }
 
     @Test
     @DisplayName("Test delete method of single linked list")
