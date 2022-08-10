@@ -58,6 +58,23 @@ public class DoubleLinkedList {
         currNode.next = newNode;
         newNode.prev = currNode;
     }
+    public void deleteNthPosition(int position){
+        if (position == 0){
+            this.head.next.prev = null;
+            this.head = this.head.next;
+            return;
+        }
+        Node currNode = this.head;
+        for (int i = 0; i <= position - 2; i ++){
+            currNode = currNode.next;
+            if (currNode == null){
+                System.out.println("Invalid position");
+                return;
+            }
+        }
+        currNode.next.next.prev = currNode;
+        currNode.next = currNode.next.next;
+    }
     public int getSize (){
         int count = 0;
         Node currNode = this.head;
@@ -74,5 +91,26 @@ public class DoubleLinkedList {
             currNode = currNode.next;
         }
         return currNode == null ? null : currNode.data;
+    }
+
+    public void print(){
+        Node currNode = this.head;
+        while (currNode != null){
+            System.out.print(currNode.data + " ");
+            currNode = currNode.next;
+        }
+        System.out.println("\n");
+    }
+
+    public void printReverse(){
+        Node currNode = this.head;
+        while (currNode.next != null){
+            currNode = currNode.next;
+        }
+        while (currNode != null){
+            System.out.print(currNode.data + " ");
+            currNode = currNode.prev;
+        }
+        System.out.println("\n");
     }
 }

@@ -5,6 +5,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
 public class DoubleLinkedListTest {
     DoubleLinkedList doubleLinkedList;
@@ -48,4 +49,26 @@ public class DoubleLinkedListTest {
         doubleLinkedList.insertNthPosition(3,2);
         assertEquals(3, doubleLinkedList.getElement(2), "Insert method runs unsuccessfully");
     }
+
+    @Test
+    @DisplayName("Test delete method of double linked list")
+    void testDeleteNthPosition(){
+        doubleLinkedList.add(2);
+        doubleLinkedList.add(3);
+        doubleLinkedList.deleteNthPosition(1);
+
+        assertNotEquals(2, doubleLinkedList.getElement(1));
+    }
+    @Test
+    @DisplayName("Test print reverse method of double linked list")
+    void testPrintReverse(){
+        doubleLinkedList.add(6);
+        doubleLinkedList.add(2);
+        doubleLinkedList.add(4);
+        doubleLinkedList.add(5);
+
+        doubleLinkedList.print();
+        doubleLinkedList.printReverse();
+    }
+
 }
