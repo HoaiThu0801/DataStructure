@@ -2,27 +2,15 @@ package DoubleLinkedList;
 
 public class DoubleLinkedList {
     Node head;
-    static class Node {
-        int data;
-        Node next;
-        Node prev;
-
-        Node(int data) {
-            this.data = data;
-            this.next = null;
-            this.prev = null;
-        }
-    }
 
     public DoubleLinkedList() {
     }
 
-    public DoubleLinkedList(int data) {
-        this.head = new Node(data);
+    public DoubleLinkedList(Node node) {
+        this.head = node;
     }
 
-    public void insert (int data){
-        Node newNode = new Node(data);
+    public void insert (Node newNode){
         if (this.head == null){
             head = newNode;
             return;
@@ -35,20 +23,18 @@ public class DoubleLinkedList {
         lastNode.next = newNode;
     }
 
-    public void add (int data){
-        Node newNode = new Node(data);
+    public void add (Node newNode){
         if (this.head != null){
             newNode.next = this.head;
             this.head.prev = newNode;
         }
         this.head = newNode;
     }
-    public void insertNthPosition(int data, int position){
+    public void insertNthPosition(Node newNode, int position){
         if (position == 0){
-            add(data);
+            add(newNode);
             return;
         }
-        Node newNode = new Node(data);
         Node currNode = this.head;
         for (int i = 0; i <= position - 2; i ++){
             currNode = currNode.next;
