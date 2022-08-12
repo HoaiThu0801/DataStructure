@@ -3,6 +3,7 @@ package LinkedList;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
+import Linkedlist.Node;
 import Linkedlist.SingleLinkedList;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -14,7 +15,8 @@ public class SingleLinkedListTest {
 
     @BeforeEach
     void setUp() {
-        singleLinkedList = new SingleLinkedList(1);
+        Node node = new Node(1);
+        singleLinkedList = new SingleLinkedList(node);
     }
 
     @Test
@@ -32,7 +34,8 @@ public class SingleLinkedListTest {
     @Test
     @DisplayName("Test insert method of single linked list")
     void testInsert(){
-        singleLinkedList.insert(2);
+        Node node = new Node(2);
+        singleLinkedList.insert(node);
         int insertedIndex = singleLinkedList.getSize() - 1;
         assertEquals(2, singleLinkedList.getElement(insertedIndex), "Insert method run unsuccessfully");
     }
@@ -40,33 +43,47 @@ public class SingleLinkedListTest {
     @Test
     @DisplayName("Test add method of single linked list")
     void testAdd(){
-        singleLinkedList.add(3);
+        Node node = new Node(3);
+        singleLinkedList.add(node);
         assertEquals(3, singleLinkedList.getElement(0), "Add method run unsuccessfully");
 
-        singleLinkedList.add(4);
+        node = new Node(4);
+        singleLinkedList.add(node);
         assertEquals(4, singleLinkedList.getElement(0), "Add methods went wrong");
     }
 
     @Test
     @DisplayName("Test insert nth method of single linked list")
     void testInsertNthPosition(){
-        singleLinkedList.add(1);
-        singleLinkedList.add(4);
-        singleLinkedList.add(5);
+        Node node = new Node(4);
+        singleLinkedList.add(node);
 
-        singleLinkedList.insertNthPosition(7,3);
+        node = new Node(4);
+        singleLinkedList.add(node);
+
+        node = new Node(5);
+        singleLinkedList.add(node);
+
+        node = new Node(7);
+        singleLinkedList.insertNthPosition(node,3);
         assertEquals(7, singleLinkedList.getElement(3), "Insert nth method run unsuccessfully");
 
-        singleLinkedList.insertNthPosition(9, 2);
+        node = new Node(9);
+        singleLinkedList.insertNthPosition(node, 2);
         assertEquals(9, singleLinkedList.getElement(2), "Insert nth method went wrong");
     }
 
     @Test
     @DisplayName("Test reverse method of single linked list")
     void testReverse(){
-        singleLinkedList.add(2);
-        singleLinkedList.add(4);
-        singleLinkedList.add(5);
+        Node node = new Node(2);
+        singleLinkedList.add(node);
+
+        node = new Node(4);
+        singleLinkedList.add(node);
+
+        node = new Node(5);
+        singleLinkedList.add(node);
 
         singleLinkedList.printLinkedList();
         singleLinkedList.reverse();
@@ -77,9 +94,14 @@ public class SingleLinkedListTest {
     @Test
     @DisplayName("Test reverse recursion method of single linked list")
     void testReverseRecursion(){
-        singleLinkedList.add(2);
-        singleLinkedList.add(4);
-        singleLinkedList.add(5);
+        Node node = new Node(2);
+        singleLinkedList.add(node);
+
+        node = new Node(4);
+        singleLinkedList.add(node);
+
+        node = new Node(5);
+        singleLinkedList.add(node);
 
         singleLinkedList.printLinkedList();
         singleLinkedList.reverseRecursion();
@@ -90,8 +112,12 @@ public class SingleLinkedListTest {
     @Test
     @DisplayName("Test delete method of single linked list")
     void testDeleteNthPosition(){
-        singleLinkedList.add(2);
-        singleLinkedList.add(3);
+        Node node = new Node(2);
+        singleLinkedList.add(node);
+
+        node = new Node(3);
+        singleLinkedList.add(node);
+
         singleLinkedList.deleteNthPosition(1);
 
         assertNotEquals(2, singleLinkedList.getElement(1));
