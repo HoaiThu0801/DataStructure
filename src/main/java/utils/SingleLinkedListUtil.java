@@ -1,14 +1,15 @@
 package utils;
 
 
+import Linkedlist.Node;
 import Linkedlist.SingleLinkedList;
 
 public class SingleLinkedListUtil {
     public static int findIntersectedVal(SingleLinkedList list1, SingleLinkedList list2){
         int intersectedVal = -1;
         int count;
-        SingleLinkedList.Node head1 = list1.getHead();
-        SingleLinkedList.Node head2;
+        Node head1 = list1.getHead();
+        Node head2;
         while (head1 != null){
             head2 = list2.getHead();
             while (head2 != null){
@@ -34,8 +35,8 @@ public class SingleLinkedListUtil {
     }
     public static int findIntersectedVal2(SingleLinkedList list1, SingleLinkedList list2){
         int intersectedVal = -1;
-        SingleLinkedList.Node head1 = list1.getHead();
-        SingleLinkedList.Node head2;
+        Node head1 = list1.getHead();
+        Node head2;
         while (head1 != null){
             head2 = list2.getHead();
             while (head2 != null){

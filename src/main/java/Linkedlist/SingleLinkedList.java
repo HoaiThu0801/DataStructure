@@ -2,23 +2,6 @@ package Linkedlist;
 
 public class SingleLinkedList {
     Node head;
-    public static class Node {
-        int data;
-        Node next;
-
-        Node(int data) {
-            this.data = data;
-            this.next = null;
-        }
-
-        public int getData() {
-            return data;
-        }
-
-        public Node getNext() {
-            return next;
-        }
-    }
 
     public Node getHead() {
         return head;
@@ -26,13 +9,11 @@ public class SingleLinkedList {
 
     public SingleLinkedList() {
     }
-    public SingleLinkedList(int data) {
-        this.head = new Node(data);
+    public SingleLinkedList(Node node) {
+        this.head = node;
     }
 
-    public void insert (int data){
-        Node newNode = new Node (data);
-
+    public void insert (Node newNode){
         if (head == null){
             this.head = newNode;
         }
@@ -55,18 +36,16 @@ public class SingleLinkedList {
         }
         last.next = list.head;
     }
-    public void add (int data){
-        Node newNode = new Node(data);
+    public void add (Node newNode){
         if (this.head != null) {
             newNode.next = this.head;
         }
         this.head = newNode;
     }
-    public void insertNthPosition (int data, int position){
+    public void insertNthPosition (Node newNode, int position){
         if (position == 0){
-            add(data);
+            add(newNode);
         }
-        Node newNode = new Node(data);
         Node currNode = this.head;
         for (int i = 0; i <= position - 2; i ++){
             currNode = currNode.next;
