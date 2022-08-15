@@ -7,8 +7,8 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static utils.SingleLinkedListUtil.findIntersectedVal;
-import static utils.SingleLinkedListUtil.findIntersectedVal2;
+import static Utils.SingleLinkedListUtil.findIntersectedVal;
+import static Utils.SingleLinkedListUtil.findIntersectedVal2;
 
 public class SingleLinkedListUtilTest {
     SingleLinkedList singleLinkedList1 = new SingleLinkedList();

@@ -7,6 +7,10 @@ public class SingleLinkedList {
         return head;
     }
 
+    public void setHead(Node head) {
+        this.head = head;
+    }
+
     public SingleLinkedList() {
     }
     public SingleLinkedList(Node node) {
