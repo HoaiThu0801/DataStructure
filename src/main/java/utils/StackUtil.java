@@ -1,8 +1,8 @@
-package Utils;
+package utils;
 
-import Linkedlist.SingleLinkedList;
+import linkedlist.Node;
+import linkedlist.SingleLinkedList;
 
-import java.util.Arrays;
 import java.util.Stack;
 
 public class StackUtil {
@@ -18,16 +18,16 @@ public class StackUtil {
         return String.valueOf(chars);
     }
     public static SingleLinkedList reverse(SingleLinkedList list){
-        Stack stack = new Stack<SingleLinkedList.Node>();
-        SingleLinkedList.Node currNode = list.getHead();
+        Stack stack = new Stack<Node>();
+        Node currNode = list.getHead();
         while (currNode != null){
             stack.push(currNode);
             currNode = currNode.getNext();
         }
-        currNode = (SingleLinkedList.Node) stack.pop();
+        currNode = (Node) stack.pop();
         list.setHead(currNode);
         while(!stack.empty()){
-            currNode.setNext((SingleLinkedList.Node) stack.pop());
+            currNode.setNext((Node) stack.pop());
             currNode = currNode.getNext();
         }
         currNode.setNext(null);

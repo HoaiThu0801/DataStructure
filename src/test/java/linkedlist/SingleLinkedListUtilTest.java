@@ -1,14 +1,12 @@
-package LinkedList;
+package linkedlist;
 
-import Linkedlist.Node;
-import Linkedlist.SingleLinkedList;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static Utils.SingleLinkedListUtil.findIntersectedVal;
-import static Utils.SingleLinkedListUtil.findIntersectedVal2;
+import static utils.SingleLinkedListUtil.findIntersectedVal;
+import static utils.SingleLinkedListUtil.findIntersectedVal2;
 
 public class SingleLinkedListUtilTest {
     SingleLinkedList singleLinkedList1 = new SingleLinkedList();

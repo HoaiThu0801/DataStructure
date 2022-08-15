@@ -1,4 +1,4 @@
-package Stack;
+package stack;
 
 public class StackArrayList {
     int MAX_SIZE = 1000;

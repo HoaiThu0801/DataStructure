@@ -1,4 +1,4 @@
-package DoubleLinkedList;
+package doublelinkedlist;
 
 public class DoubleLinkedList {
     Node head;

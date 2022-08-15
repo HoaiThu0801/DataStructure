@@ -1,12 +1,11 @@
-package Stack;
+package stack;
 
-import Linkedlist.SingleLinkedList;
+import linkedlist.Node;
+import linkedlist.SingleLinkedList;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import java.nio.channels.SelectionKey;
-
-import static Utils.StackUtil.*;
+import static utils.StackUtil.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class StackUtilTest {
@@ -19,11 +18,21 @@ public class StackUtilTest {
     @Test
     @DisplayName("Test reverse linked list using stack")
     void testReverseLinkedList() {
-        SingleLinkedList singleLinkedList = new SingleLinkedList(1);
-        singleLinkedList.insert(2);
-        singleLinkedList.insert(3);
-        singleLinkedList.insert(4);
-        singleLinkedList.insert(5);
+        Node node = new Node(1);
+
+        SingleLinkedList singleLinkedList = new SingleLinkedList(node);
+
+        node = new Node(2);
+        singleLinkedList.insert(node);
+
+        node = new Node(3);
+        singleLinkedList.insert(node);
+
+        node = new Node(4);
+        singleLinkedList.insert(node);
+
+        node = new Node(5);
+        singleLinkedList.insert(node);
 
         singleLinkedList.printLinkedList();
         reverse(singleLinkedList).printLinkedList();

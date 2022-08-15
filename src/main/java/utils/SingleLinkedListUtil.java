@@ -1,8 +1,8 @@
-package Utils;
+package utils;
 
 
-import Linkedlist.Node;
-import Linkedlist.SingleLinkedList;
+import linkedlist.Node;
+import linkedlist.SingleLinkedList;
 
 public class SingleLinkedListUtil {
     public static int findIntersectedVal(SingleLinkedList list1, SingleLinkedList list2){
