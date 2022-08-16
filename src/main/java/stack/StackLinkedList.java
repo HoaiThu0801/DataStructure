@@ -2,7 +2,7 @@ package stack;
 
 
 public class StackLinkedList {
-    Node top;
+    private Node top;
     public static class Node {
         int data;
         Node next;

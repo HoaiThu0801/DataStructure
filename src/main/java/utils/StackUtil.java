@@ -6,6 +6,11 @@ import linkedlist.SingleLinkedList;
 import java.util.Stack;
 
 public class StackUtil {
+    /**
+     * This method is used to reverse the string.
+     * @param s This is the input string parameter
+     * @return String This returns the reversed string.
+     */
     public static String reverse(String s){
         Stack stack = new Stack<Character>();
         char[] chars = s.toCharArray();
@@ -17,6 +22,11 @@ public class StackUtil {
         }
         return String.valueOf(chars);
     }
+    /**
+     * This method is used to reverse the single linked list.
+     * @param list This is the input string parameter
+     * @return SingleLinkedList This returns the reversed single linked list.
+     */
     public static SingleLinkedList reverse(SingleLinkedList list){
         Stack stack = new Stack<Node>();
         Node currNode = list.getHead();
@@ -33,6 +43,11 @@ public class StackUtil {
         currNode.setNext(null);
         return list;
     }
+    /**
+     * This method is used to check whether balanced parentheses.
+     * @param s This is the input string parameter
+     * @return boolean This returns true/false if balanced parentheses or not.
+     */
     public static boolean checkBalancedParentheses(String s){
         Stack stack = new Stack<Character>();
         char[] chars = s.toCharArray();
@@ -60,6 +75,11 @@ public class StackUtil {
         }
         return true;
     }
+    /**
+     * This method is used to convert infix to postfix expression.
+     * @param s This is infix expression parameter
+     * @return String This returns the postfix expression.
+     */
     public static String infixToPostfix(String s){
         Stack stack = new Stack<Character>();
         String res = "";
@@ -88,6 +108,11 @@ public class StackUtil {
         }
         return res;
     }
+    /**
+     * This method is used to check whether character is operator.
+     * @param c This is character input parameter
+     * @return Boolean This returns true/false if character is operator or not.
+     */
     public static Boolean isOperator(Character c){
         Character[] arrOperator = {'+', '-', '*', '/'};
         for (Character i : arrOperator){
@@ -97,6 +122,12 @@ public class StackUtil {
         }
         return false;
     }
+    /**
+     * This method is used to compare operator 1 to operator 2.
+     * @param operatorStack This is 1st operator parameter
+     * @param operatorStr This is 2nd operator parameter
+     * @return Boolean This returns true/false if operator 1 is greater than operator 2 or not.
+     */
     public static Boolean hasHigherPrec(Character operatorStack, Character operatorStr){
         Character[] arrOperator = {'+', '-', '*', '/'};
         int indexOfOSt = -1;

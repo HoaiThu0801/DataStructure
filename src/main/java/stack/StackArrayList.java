@@ -1,29 +1,34 @@
 package stack;
 
 public class StackArrayList {
-    int MAX_SIZE = 1000;
-    int[] A = new int[MAX_SIZE];
-    int top = -1;
+    private int MAX_SIZE = 1000;
+    private int[] A;
+    private int top = -1;
 
-    public StackArrayList() {
+    public StackArrayList(int size) {
+        A = new int[size];
     }
-    public StackArrayList(int x) {
+    public StackArrayList(int x, int size) {
+        A = new int[size];
         top = 0;
         this.A[top] = x;
     }
-    public void push (int x){
+    public int push (int x){
         if (top == MAX_SIZE - 1){
             System.out.println("Stack overflow");
-            return;
+            return -1;
         }
        this.A[++top] = x;
+        return x;
     }
-    public void pop(){
+    public int pop(){
         if (this.top == -1){
             System.out.println("Emty stack");
-            return;
+            return -1;
         }
+        int result = this.top;
         --this.top;
+        return  result;
     }
     public int top(){
         return A[top];

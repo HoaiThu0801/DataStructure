@@ -18,21 +18,11 @@ public class StackUtilTest {
     @Test
     @DisplayName("Test reverse linked list using stack")
     void testReverseLinkedList() {
-        Node node = new Node(1);
-
-        SingleLinkedList singleLinkedList = new SingleLinkedList(node);
-
-        node = new Node(2);
-        singleLinkedList.insert(node);
-
-        node = new Node(3);
-        singleLinkedList.insert(node);
-
-        node = new Node(4);
-        singleLinkedList.insert(node);
-
-        node = new Node(5);
-        singleLinkedList.insert(node);
+        SingleLinkedList singleLinkedList = new SingleLinkedList(new Node(1));
+        singleLinkedList.insert(new Node(2));
+        singleLinkedList.insert(new Node(3));
+        singleLinkedList.insert(new Node(4));
+        singleLinkedList.insert(new Node(5));
 
         singleLinkedList.printLinkedList();
         reverse(singleLinkedList).printLinkedList();

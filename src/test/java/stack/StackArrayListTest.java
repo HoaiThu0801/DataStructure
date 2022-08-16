@@ -11,7 +11,7 @@ public class StackArrayListTest
     StackArrayList stackArrayList;
     @BeforeEach
     void setUp() {
-        stackArrayList = new StackArrayList(1);
+        stackArrayList = new StackArrayList(1, 10);
     }
 
     @Test

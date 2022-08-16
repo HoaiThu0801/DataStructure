@@ -1,7 +1,11 @@
 package doublelinkedlist;
 
 public class DoubleLinkedList {
-    Node head;
+    private Node head;
+
+    public Node getHead() {
+        return head;
+    }
 
     public DoubleLinkedList() {
     }
@@ -16,57 +20,60 @@ public class DoubleLinkedList {
             return;
         }
         Node lastNode = this.head;
-        while (lastNode.next != null){
-            lastNode = lastNode.next;
+        while (lastNode.getNext() != null){
+            lastNode = lastNode.getNext();
         }
-        newNode.prev = lastNode;
-        lastNode.next = newNode;
+        newNode.setPrev(lastNode);
+        lastNode.setNext(newNode);
     }
 
-    public void add (Node newNode){
+    public Node add (Node newNode){
         if (this.head != null){
-            newNode.next = this.head;
-            this.head.prev = newNode;
+            newNode.setNext(this.head);
+            this.head.setPrev(newNode);
         }
         this.head = newNode;
+        return newNode;
     }
-    public void insertNthPosition(Node newNode, int position){
+    public Node insertNthPosition(Node newNode, int position){
         if (position == 0){
             add(newNode);
-            return;
+            return newNode;
         }
         Node currNode = this.head;
         for (int i = 0; i <= position - 2; i ++){
-            currNode = currNode.next;
+            currNode = currNode.getNext();
         }
-        newNode.next = currNode.next;
-        currNode.next.prev = newNode;
-        currNode.next = newNode;
-        newNode.prev = currNode;
+        newNode.setNext(currNode.getNext());
+        currNode.getNext().setPrev(newNode);
+        currNode.setNext(newNode);
+        newNode.setPrev(currNode);
+        return newNode;
     }
-    public void deleteNthPosition(int position){
+    public Boolean deleteNthPosition(int position){
         if (position == 0){
-            this.head.next.prev = null;
-            this.head = this.head.next;
-            return;
+            this.head.getNext().setPrev(null);
+            this.head = this.head.getNext();
+            return true;
         }
         Node currNode = this.head;
         for (int i = 0; i <= position - 2; i ++){
-            currNode = currNode.next;
+            currNode = currNode.getNext();
             if (currNode == null){
                 System.out.println("Invalid position");
-                return;
+                return false;
             }
         }
-        currNode.next.next.prev = currNode;
-        currNode.next = currNode.next.next;
+        currNode.getNext().getNext().setPrev(currNode);
+        currNode.setNext(currNode.getNext().getNext());
+        return true;
     }
     public int getSize (){
         int count = 0;
         Node currNode = this.head;
         while (currNode != null){
             count ++;
-            currNode = currNode.next;
+            currNode = currNode.getNext();
         }
         return count;
     }
@@ -74,28 +81,28 @@ public class DoubleLinkedList {
     public int getElement(int index){
         Node currNode = this.head;
         for (int i = 0; i < index; i ++){
-            currNode = currNode.next;
+            currNode = currNode.getNext();
         }
-        return currNode == null ? null : currNode.data;
+        return currNode == null ? null : currNode.getData();
     }
 
     public void print(){
         Node currNode = this.head;
         while (currNode != null){
-            System.out.print(currNode.data + " ");
-            currNode = currNode.next;
+            System.out.print(currNode.getData() + " ");
+            currNode = currNode.getNext();
         }
         System.out.println("\n");
     }
 
     public void printReverse(){
         Node currNode = this.head;
-        while (currNode.next != null){
-            currNode = currNode.next;
+        while (currNode.getNext() != null){
+            currNode = currNode.getNext();
         }
         while (currNode != null){
-            System.out.print(currNode.data + " ");
-            currNode = currNode.prev;
+            System.out.print(currNode.getData() + " ");
+            currNode = currNode.getPrev();
         }
         System.out.println("\n");
     }
