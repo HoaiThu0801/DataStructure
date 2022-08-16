@@ -1,6 +1,5 @@
-package LinkedList;
+package linkedlist;
 
-import Linkedlist.SingleLinkedList;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -16,28 +15,12 @@ public class SingleLinkedListUtilTest {
 
     @BeforeEach
     void setUp() {
-//        singleLinkedList1.insert(4);
-//        singleLinkedList1.insert(1);
-//
-//        singleLinkedList2 = new SingleLinkedList(5);
-//        singleLinkedList2.insert(6);
-//        singleLinkedList2.insert(1);
-//
-//        singleLinkedList3.insert(8);
-//        singleLinkedList3.insert(4);
-//        singleLinkedList3.insert(5);
-//
-//        singleLinkedList1.insert(singleLinkedList3);
-//        singleLinkedList2.insert(singleLinkedList3);
-
-        singleLinkedList1.insert(3);
-        singleLinkedList1.insert(6);
-        singleLinkedList1.insert(9);
-
-        singleLinkedList2.insert(10);
-
-        singleLinkedList3.insert(15);
-        singleLinkedList3.insert(30);
+        singleLinkedList1.insert(new Node(3));
+        singleLinkedList1.insert(new Node(6));
+        singleLinkedList1.insert(new Node(9));
+        singleLinkedList2.insert(new Node(10));
+        singleLinkedList3.insert(new Node(15));
+        singleLinkedList3.insert(new Node(30));
 
         singleLinkedList1.insert(singleLinkedList3);
         singleLinkedList2.insert(singleLinkedList3);

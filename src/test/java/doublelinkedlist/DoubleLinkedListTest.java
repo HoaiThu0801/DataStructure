@@ -1,4 +1,4 @@
-package DoubleLinkedList;
+package doublelinkedlist;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -12,7 +12,7 @@ public class DoubleLinkedListTest {
 
     @BeforeEach
     void setUp() {
-        doubleLinkedList = new DoubleLinkedList(1);
+        doubleLinkedList = new DoubleLinkedList(new Node(1));
     }
 
     @Test
@@ -29,32 +29,32 @@ public class DoubleLinkedListTest {
     @Test
     @DisplayName("Test insert method of double linked list")
     void testInsert(){
-        doubleLinkedList.insert(2);
+        doubleLinkedList.insert(new Node(2));
         int index = doubleLinkedList.getSize() - 1;
         assertEquals(2, doubleLinkedList.getElement(index), "Insert method runs unsuccessfully");
     }
     @Test
     @DisplayName("Test add method of double linked list")
     void testAdd(){
-        doubleLinkedList.add(3);
+        doubleLinkedList.add(new Node(3));
         assertEquals(3, doubleLinkedList.getElement(0), "Add method runs unsuccessfully");
     }
     @Test
     @DisplayName("Test double method of double linked list")
     void testInsertNthPosition(){
-        doubleLinkedList.add(6);
-        doubleLinkedList.add(2);
-        doubleLinkedList.add(4);
-        doubleLinkedList.add(5);
-        doubleLinkedList.insertNthPosition(3,2);
+        doubleLinkedList.add(new Node(6));
+        doubleLinkedList.add(new Node(2));
+        doubleLinkedList.add(new Node(4));
+        doubleLinkedList.add(new Node(5));
+        doubleLinkedList.insertNthPosition(new Node(3),2);
         assertEquals(3, doubleLinkedList.getElement(2), "Insert method runs unsuccessfully");
     }
 
     @Test
     @DisplayName("Test delete method of double linked list")
     void testDeleteNthPosition(){
-        doubleLinkedList.add(2);
-        doubleLinkedList.add(3);
+        doubleLinkedList.add(new Node(2));
+        doubleLinkedList.add(new Node(3));
         doubleLinkedList.deleteNthPosition(1);
 
         assertNotEquals(2, doubleLinkedList.getElement(1));
@@ -62,10 +62,10 @@ public class DoubleLinkedListTest {
     @Test
     @DisplayName("Test print reverse method of double linked list")
     void testPrintReverse(){
-        doubleLinkedList.add(6);
-        doubleLinkedList.add(2);
-        doubleLinkedList.add(4);
-        doubleLinkedList.add(5);
+        doubleLinkedList.add(new Node(6));
+        doubleLinkedList.add(new Node(2));
+        doubleLinkedList.add(new Node(4));
+        doubleLinkedList.add(new Node(5));
 
         doubleLinkedList.print();
         doubleLinkedList.printReverse();

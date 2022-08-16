@@ -1,47 +1,32 @@
-package Linkedlist;
+package linkedlist;
 
 public class SingleLinkedList {
-    Node head;
-    public static class Node {
-        int data;
-        Node next;
-
-        Node(int data) {
-            this.data = data;
-            this.next = null;
-        }
-
-        public int getData() {
-            return data;
-        }
-
-        public Node getNext() {
-            return next;
-        }
-    }
+    private Node head;
 
     public Node getHead() {
         return head;
     }
 
+    public void setHead(Node head) {
+        this.head = head;
+    }
+
     public SingleLinkedList() {
     }
-    public SingleLinkedList(int data) {
-        this.head = new Node(data);
+    public SingleLinkedList(Node node) {
+        this.head = node;
     }
 
-    public void insert (int data){
-        Node newNode = new Node (data);
-
+    public void insert (Node newNode){
         if (head == null){
             this.head = newNode;
         }
         else {
             Node last = this.head;
-            while (last.next != null){
-                last = last.next;
+            while (last.getNext() != null){
+                last = last.getNext();
             }
-            last.next = newNode;
+            last.setNext(newNode);
         }
     }
     public void insert(SingleLinkedList list){
@@ -50,50 +35,48 @@ public class SingleLinkedList {
             return;
         }
         Node last = this.head;
-        while (last.next != null){
-            last = last.next;
+        while (last.getNext() != null){
+            last = last.getNext();
         }
-        last.next = list.head;
+        last.setNext(list.head);
     }
-    public void add (int data){
-        Node newNode = new Node(data);
+    public void add (Node newNode){
         if (this.head != null) {
-            newNode.next = this.head;
+            newNode.setNext(this.head);
         }
         this.head = newNode;
     }
-    public void insertNthPosition (int data, int position){
+    public void insertNthPosition (Node newNode, int position){
         if (position == 0){
-            add(data);
+            add(newNode);
         }
-        Node newNode = new Node(data);
         Node currNode = this.head;
         for (int i = 0; i <= position - 2; i ++){
-            currNode = currNode.next;
+            currNode = currNode.getNext();
             if (currNode == null){
                 System.out.println("Invalid position");
                 return;
             }
         }
-        newNode.next = currNode.next;
-        currNode.next = newNode;
+        newNode.setNext(currNode.getNext());
+        currNode.setNext(newNode);
     }
     public void  deleteNthPosition (int position)
     {
         if (position == 0){
-            this.head = this.head.next;
+            this.head = this.head.getNext();
         }
         else {
             Node temp = this.head;
             for (int i = 0; i <= position - 2; i ++){
-                temp = temp.next;
+                temp = temp.getNext();
                 if (temp == null){
                     System.out.println();
                     System.out.println("Invalid position");
                     return;
                 }
             }
-            temp.next = temp.next.next;
+            temp.setNext(temp.getNext().getNext());
         }
     }
     public void reverse (){
@@ -101,8 +84,8 @@ public class SingleLinkedList {
         curr = this.head;
         prev = null;
         while (curr != null){
-            next = curr.next;
-            curr.next = prev;
+            next = curr.getNext();
+            curr.setNext(prev);
             prev = curr;
             curr = next;
         }
@@ -113,28 +96,28 @@ public class SingleLinkedList {
     }
 
     public void reverseRecursionHelper(Node head){
-        if (head.next == null){
+        if (head.getNext() == null){
             this.head = head;
             return;
         }
-        reverseRecursionHelper(head.next);
-        Node currNode = head.next;
-        currNode.next = head;
-        head.next = null;
+        reverseRecursionHelper(head.getNext());
+        Node currNode = head.getNext();
+        currNode.setNext(head);
+        head.setNext(null);
     }
     public int getElement (int index){
         Node currNode = this.head;
         for (int i = 0; i < index; i ++){
-            currNode = currNode.next;
+            currNode = currNode.getNext();
         }
-        return currNode == null ? null : currNode.data;
+        return currNode == null ? null : currNode.getData();
     }
 
     public int getSize (){
         Node currNode = this.head;
         int count = 0;
         while (currNode != null){
-            currNode = currNode.next;
+            currNode = currNode.getNext();
             count ++;
         }
         return count;
@@ -143,8 +126,8 @@ public class SingleLinkedList {
         System.out.println("Linked listed: ");
         Node temp = this.head;
         while (temp != null){
-            System.out.print(temp.data + " ");
-            temp = temp.next;
+            System.out.print(temp.getData() + " ");
+            temp = temp.getNext();
         }
         System.out.println("\n");
     }

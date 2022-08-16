@@ -1,14 +1,21 @@
 package utils;
 
 
-import Linkedlist.SingleLinkedList;
+import linkedlist.Node;
+import linkedlist.SingleLinkedList;
 
 public class SingleLinkedListUtil {
+    /**
+     * This method is used to find intersected value between 2 single linked lists.
+     * @param list1 This is the 1st input single linked list parameter
+     * @param list2 This is the 2nd input single linked list parameter
+     * @return int This returns the intersected value.
+     */
     public static int findIntersectedVal(SingleLinkedList list1, SingleLinkedList list2){
         int intersectedVal = -1;
         int count;
-        SingleLinkedList.Node head1 = list1.getHead();
-        SingleLinkedList.Node head2;
+        Node head1 = list1.getHead();
+        Node head2;
         while (head1 != null){
             head2 = list2.getHead();
             while (head2 != null){
@@ -32,10 +39,16 @@ public class SingleLinkedListUtil {
         }
         return intersectedVal;
     }
+    /**
+     * This method is used to find intersected value between 2 single linked lists.
+     * @param list1 This is the 1st input single linked list parameter
+     * @param list2 This is the 2nd input single linked list parameter
+     * @return int This returns the intersected value.
+     */
     public static int findIntersectedVal2(SingleLinkedList list1, SingleLinkedList list2){
         int intersectedVal = -1;
-        SingleLinkedList.Node head1 = list1.getHead();
-        SingleLinkedList.Node head2;
+        Node head1 = list1.getHead();
+        Node head2;
         while (head1 != null){
             head2 = list2.getHead();
             while (head2 != null){
