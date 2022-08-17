@@ -4,6 +4,9 @@ package utils;
 import linkedlist.Node;
 import linkedlist.SingleLinkedList;
 
+import java.util.HashSet;
+import java.util.Set;
+
 public class SingleLinkedListUtil {
     /**
      * This method is used to find intersected value between 2 single linked lists.
@@ -60,6 +63,23 @@ public class SingleLinkedListUtil {
             head1 = head1.getNext();
         }
         return intersectedVal;
+    }
+    public static int findIntersectedVal3(SingleLinkedList list1, SingleLinkedList list2){
+        Set hashSet = new HashSet();
+        Node head1 = list1.getHead();
+        while (head1 != null){
+            hashSet.add(head1);
+            head1 = head1.getNext();
+        }
+
+        Node head2 = list2.getHead();
+        while (head2 != null){
+            if (hashSet.contains(head2)){
+                return head2.getData();
+            }
+            head2 = head2.getNext();
+        }
+        return -1;
     }
 }
 

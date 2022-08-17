@@ -5,8 +5,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static utils.SingleLinkedListUtil.findIntersectedVal;
-import static utils.SingleLinkedListUtil.findIntersectedVal2;
+import static utils.SingleLinkedListUtil.*;
 
 public class SingleLinkedListUtilTest {
     SingleLinkedList singleLinkedList1 = new SingleLinkedList();
@@ -36,6 +35,11 @@ public class SingleLinkedListUtilTest {
     @DisplayName("Test find intersected value function 2 between two single linked lists")
     void testFindIntersectedVal2() {
         assertEquals(15, findIntersectedVal2(singleLinkedList1, singleLinkedList2), "Find intersected value went wrong");
+    }
+    @Test
+    @DisplayName("Test find intersected value function 3 between two single linked lists")
+    void testFindIntersectedVal3() {
+        assertEquals(15, findIntersectedVal3(singleLinkedList1, singleLinkedList2), "Find intersected value went wrong");
     }
 
 }
