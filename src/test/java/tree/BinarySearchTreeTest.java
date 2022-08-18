@@ -17,15 +17,18 @@ public class BinarySearchTreeTest {
     @DisplayName("Test add and search method of binary search tree")
     void testAddAndSearch(){
         binarySearchTree.add(new BSTNode(2));
-        binarySearchTree.add(new BSTNode(3));
         binarySearchTree.add(new BSTNode(4));
+        binarySearchTree.add(new BSTNode(3));
         binarySearchTree.add(new BSTNode(5));
+        binarySearchTree.add(new BSTNode(8));
+        binarySearchTree.add(new BSTNode(7));
         assertEquals(true, binarySearchTree.search(1), "Something went wrong");
         assertEquals(true, binarySearchTree.search(2), "Something went wrong");
         assertEquals(true, binarySearchTree.search(3), "Something went wrong");
         assertEquals(true, binarySearchTree.search(4), "Something went wrong");
         assertEquals(true, binarySearchTree.search(5), "Something went wrong");
-        assertEquals(false, binarySearchTree.search(8), "Something went wrong");
-
+        assertEquals(true, binarySearchTree.search(8), "Something went wrong");
+        assertEquals(true, binarySearchTree.search(7), "Something went wrong");
+        assertEquals(false, binarySearchTree.search(9), "Something went wrong");
     }
 }

@@ -10,40 +10,24 @@ public class BinarySearchTree {
     public BinarySearchTree() {
     }
 
-    public boolean add (BSTNode node){
-        if (this.root == null){
-            this.root = node;
-        }
-        else{
-            BSTNode currNode = this.root;
-            while(currNode.getLeft() != null || currNode.getRight() != null){
-                if (currNode.getData() >= node.getData()){
-                    currNode = currNode.getLeft();
-                }
-                else {
-                    currNode = currNode.getRight();
-                }
-            }
-            if (currNode.getData() >= node.getData()){
-                currNode.setLeft(node);
-            }
-            else {
-                currNode.setRight(node);
-            }
-        }
-        return true;
+    public BSTNode add (BSTNode node){
+        return addHelper(this.root, node);
     }
     private BSTNode addHelper(BSTNode root, BSTNode newNode){
-        if (root == null){
-            root = newNode;
-            return root;
-        } else if (root.getData() >= newNode.getData()) {
-          return addHelper(root.getLeft(), newNode);
+        if (root.getData() > newNode.getData()){
+            if (root.getLeft() == null){
+                root.setLeft(newNode);
+                return root;
+            }
+            return addHelper (root.getLeft(), newNode);
         }
-        else  {
-           return addHelper(root.getRight(), newNode);
+        else {
+            if (root.getRight() == null){
+                root.setRight(newNode);
+                return root;
+            }
+            return addHelper(root.getRight(), newNode);
         }
-
     }
 
     public boolean search (int data){
