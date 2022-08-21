@@ -64,4 +64,80 @@ public class BinarySearchTreeTest {
         binarySearchTree.add(new BSTNode(11));
         binarySearchTree.levelOrderTraversal();
     }
+    @Test
+    @DisplayName("Test pre order traversal method of binary search tree")
+    void testPreOrderTraversal(){
+        binarySearchTree.add(new BSTNode(10));
+        binarySearchTree.add(new BSTNode(11));
+        binarySearchTree.preOrderTraversal();
+    }
+
+    @Test
+    @DisplayName("Test in order traversal method of binary search tree")
+    void testInOrderTraversal(){
+        binarySearchTree.add(new BSTNode(10));
+        binarySearchTree.add(new BSTNode(11));
+        binarySearchTree.inOrderTraversal();
+    }
+
+    @Test
+    @DisplayName("Test post order traversal method of binary search tree")
+    void testPostOrderTraversal(){
+        binarySearchTree.add(new BSTNode(10));
+        binarySearchTree.add(new BSTNode(11));
+        binarySearchTree.postOrderTraversal();
+    }
+    @Test
+    @DisplayName("Test check if binary search tree method of binary search tree")
+    void testIsBinarySearchTree(){
+        binarySearchTree.add(new BSTNode(10));
+        binarySearchTree.add(new BSTNode(11));
+        assertEquals(true, binarySearchTree.isBinarySearchTree(), "Check if binary search tree method  went wrong");
+    }
+    @Test
+    @DisplayName("Test delete method of binary search tree")
+    void tesDeleteLeaf(){
+        binarySearchTree.add(new BSTNode(10));
+        binarySearchTree.add(new BSTNode(11));
+        binarySearchTree.delete(1);
+        System.out.println("Test delete leaf");
+        binarySearchTree.inOrderTraversal();
+    }
+    @Test
+    @DisplayName("Test delete method of binary search tree")
+    void tesDeleteOneChildLeft(){
+        binarySearchTree.add(new BSTNode(10));
+        binarySearchTree.add(new BSTNode(11));
+        binarySearchTree.delete(3);
+        System.out.println("Test delete one child left");
+        binarySearchTree.inOrderTraversal();
+    }
+    @Test
+    @DisplayName("Test delete method of binary search tree")
+    void tesDeleteOneChildRight(){
+        binarySearchTree.add(new BSTNode(10));
+        binarySearchTree.add(new BSTNode(11));
+        binarySearchTree.delete(5);
+        System.out.println("Test delete one child right");
+        binarySearchTree.inOrderTraversal();
+    }
+    @Test
+    @DisplayName("Test delete method of binary search tree")
+    void tesDeleteMoreOneChild(){
+        binarySearchTree.add(new BSTNode(10));
+        binarySearchTree.add(new BSTNode(11));
+        binarySearchTree.delete(4);
+        System.out.println("Test delete more one child");
+        binarySearchTree.inOrderTraversal();
+    }
+    @Test
+    @DisplayName("Test inorder successor method of binary search tree")
+    void testInorderSuccessor(){
+        binarySearchTree.add(new BSTNode(10));
+        binarySearchTree.add(new BSTNode(11));
+        assertEquals(2, binarySearchTree.inorderSuccessor(1).getData(), "Check if binary search tree method  went wrong");
+        assertEquals(5, binarySearchTree.inorderSuccessor(4).getData(), "Check if binary search tree method  went wrong");
+        assertEquals(8, binarySearchTree.inorderSuccessor(6).getData(), "Check if binary search tree method  went wrong");
+        assertEquals( null, binarySearchTree.inorderSuccessor(17), "Check if binary search tree method  went wrong");
+    }
 }
