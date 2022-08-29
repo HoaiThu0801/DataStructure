@@ -1,8 +1,5 @@
 package queue;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class QueueArray {
     private int font = -1;
     private int rear = -1;
