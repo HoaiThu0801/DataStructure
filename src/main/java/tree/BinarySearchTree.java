@@ -79,18 +79,23 @@ public class BinarySearchTree {
 
     public void levelOrderTraversal(){
         System.out.println("Level order traversal");
-        BSTNode currNode = this.root;
-        Queue queue = new LinkedList<BSTNode>();
-        queue.add(currNode);
-        while (!queue.isEmpty()){
-            currNode = (BSTNode) queue.poll();
-            System.out.print(currNode.getData() + " ");
-            if (currNode.getLeft() != null){
-                queue.add(currNode.getLeft());
+        try{
+            BSTNode currNode = this.root;
+            Queue queue = new LinkedList<BSTNode>();
+            queue.add(currNode);
+            while (!queue.isEmpty()){
+                currNode = (BSTNode) queue.poll();
+                System.out.print(currNode.getData() + " ");
+                if (currNode.getLeft() != null){
+                    queue.add(currNode.getLeft());
+                }
+                if (currNode.getRight() != null){
+                    queue.add(currNode.getRight());
+                }
             }
-            if (currNode.getRight() != null){
-                queue.add(currNode.getRight());
-            }
+        }
+        catch (NullPointerException e){
+            throw e;
         }
         System.out.println("\n");
     }
@@ -118,9 +123,9 @@ public class BinarySearchTree {
         if (root == null){
             return;
         }
-        preOrderTraversalHelper(root.getLeft());
+        inOrderTraversalHelper(root.getLeft());
         System.out.print(root.getData() + " ");
-        preOrderTraversalHelper(root.getRight());
+        inOrderTraversalHelper(root.getRight());
     }
 
     public void postOrderTraversal(){
@@ -132,13 +137,20 @@ public class BinarySearchTree {
         if (root == null){
             return;
         }
-        preOrderTraversalHelper(root.getLeft());
-        preOrderTraversalHelper(root.getRight());
+        postOrderTraversalHelper(root.getLeft());
+        postOrderTraversalHelper(root.getRight());
         System.out.print(root.getData() + " ");
     }
     public Boolean isBinarySearchTree(){
-        return isBinarySearchTreeHelper(this.root, -9999999, 9999999);
+        return isBinarySearchTreeHelper(this.root, Integer.MIN_VALUE, Integer.MAX_VALUE);
     }
+    /**
+     * This method is helper function to check if binary tree is binary search tree using recursion.
+     * @param root This is the root of tree parameter
+     * @param minValue This is the 2nd int input parameter
+     * @param maxValue This is the 3rd int input parameter
+     * @return Boolean This returns if binary tree is binary search tree
+     */
     private Boolean isBinarySearchTreeHelper(BSTNode root, int minValue, int maxValue){
         if (root == null){
             return true;
@@ -154,6 +166,12 @@ public class BinarySearchTree {
     public BSTNode delete(int data){
         return deleteHelper(this.root, data);
     }
+    /**
+     * This method is helper function to delete node using recursion.
+     * @param root This is the root of tree parameter
+     * @param data This is the int input parameter
+     * @return BSTNode This returns the deleted value.
+     */
     public BSTNode deleteHelper(BSTNode root, int data){
         if (root == null){
             return root;
@@ -163,15 +181,15 @@ public class BinarySearchTree {
         } else if (root.getData() < data) {
             root.setRight(deleteHelper(root.getRight(), data));
         }
-        else {
-            if (root.getLeft() == null && root.getRight() == null){
+        else { //Found the node need deleting
+            if (root.getLeft() == null && root.getRight() == null){ // Case: Node leaf
                 root = null;
-            } else if (root.getLeft() == null) {
+            } else if (root.getLeft() == null) { // Case: One right child, no left child
                 root = root.getRight();
-            } else if (root.getRight() == null) {
+            } else if (root.getRight() == null) { //Case: One left child, no right child
                 root = root.getLeft();
             }
-            else {
+            else { // Case: have both left & right child
                 BSTNode temp = findMin(root.getRight());
                 root.setData(temp.getData());
                 root.setRight(deleteHelper(root.getRight(), temp.getData()));
